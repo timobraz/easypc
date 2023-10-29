@@ -11,7 +11,7 @@ export const listBuilds = query({
   args: {},
 
   // Query function implementation.
-  handler: async (ctx, args) => {
+  handler: async (ctx, _) => {
     const query = await ctx.db.query("builds");
     return query.collect();
   },

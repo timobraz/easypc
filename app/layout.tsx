@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
-const poppins = Poppins({ weight: "600", subsets: ["latin"] });
+const poppins = Poppins({ weight: ["400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
 
 // export const metadata: Metadata = {
 //   title: "EasyPC",

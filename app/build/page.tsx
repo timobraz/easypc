@@ -4,8 +4,9 @@ import Model from "@/components/models/pc";
 import { Bounds, CameraControls, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMutation } from "convex/react";
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { api } from "@/../convex/_generated/api";
+import { useRouter } from "next/navigation";
 interface PartProps {
   src: string;
   model: string;
@@ -17,6 +18,7 @@ interface PartProps {
 export default function Build() {
   const saveToConvex = useMutation(api.myFunctions.saveBuild);
   const [name, setName] = useState<string>("");
+  const router = useRouter();
   const [parts, setParts] = useState<PartProps[]>([
     { src: "https://m.media-amazon.com/images/I/71TaSwsWCxL._AC_UF894,1000_QL80_.jpg", model: "X79", type: "Motherboard", price: 115.49 },
     {
@@ -27,7 +29,9 @@ export default function Build() {
     },
   ]);
 
-  async function save_to_convex() {
+  async function save_to_convex(e: FormEvent) {
+    e.preventDefault();
+    e.stopPropagation();
     const result = await saveToConvex({
       parts: parts.map((part) => {
         return { preview: part.src, title: part.model, type: part.type, price: part.price, description: "test" };
@@ -36,7 +40,9 @@ export default function Build() {
       title: name || "My build",
       totalPrice: parts.reduce((a, b) => a + b.price, 0),
     });
+    name.trim().length > 1 && router.push("/dashboard");
   }
+
   return (
     <main className="flex min-h-screen h-full justify-center p-24 bg-primary w-full  relative">
       <div className="flex-1 flex-col flex relative w-[40rem] h-[40rem] items-center justify-center">
@@ -54,19 +60,18 @@ export default function Build() {
             />
           </Bounds>
         </Canvas>
-        <input
-          type="text"
-          placeholder="Name this build"
-          className="rounded-xl w-1/2 px-5 py-2 my-6 h-16 text-secondary flex  justify-between items-center text-2xl outline ring-4 bg-white focus:outline-gray-400 outline-gray-200 shadow-lg shadow-cyan-700"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button
-          className=" shadow-md shadow-gray-500 px-10 py-4 font-extrabold rounded-xl text-2xl bg-slate-800 text-primary"
-          onClick={save_to_convex}
-        >
-          Confirm
-        </button>
+        <form action="" className="w-full flex flex-col items-center" onSubmit={save_to_convex}>
+          <input
+            type="text"
+            placeholder="Name this build"
+            className="rounded-xl w-1/2 px-5 py-2 my-6 h-16 text-secondary flex  justify-between items-center text-2xl outline ring-4 bg-white focus:outline-gray-400 outline-gray-200 shadow-lg shadow-cyan-700"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button className=" shadow-md shadow-gray-500 px-10 py-4 font-extrabold rounded-xl text-2xl bg-slate-800 text-primary" type="submit">
+            Save Build
+          </button>
+        </form>
       </div>
 
       <div className="w-full flex flex-1 flex-col items-center justify-between gap-4 h-full  p-4">

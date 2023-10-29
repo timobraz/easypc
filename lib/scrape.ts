@@ -16,8 +16,6 @@ import axios from "axios";
       "sec-fetch-user": "?1",
       "upgrade-insecure-requests": "1",
       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko",
-      cookie:
-        "xcsrftoken=EpkWpySGJrlLBoOGT5Hvmcm1Qnh2aEg2aoICy6J0iAYIMbaCRT9TP1YoTLUerXZW; cf_clearance=10G6N26uYBr._B5c5MwjYhHJhEqr5nnoZPR2unGd9AA-1698500596-0-1-217ba70.4b09a98d.912d3306-0.2.1698500596; xsessionid=c4em5dll0momm3rgb52hcqjzftmu7rhq; xgdpr-consent=allow; __cf_bm=t4Lj0WygM7tjOB.QhjSWcZIom8bxFraGY7A22iTpUHk-1698560166-0-AUkIR7CpR3qYn4Qlqdk3dyfJ9b1zPrI6f5sqsoHgHepLgsNoDcP40HL/D+Rc/zj8EXElYxKuOIdFzCrcOAGsmC8=",
       Referer: "https://pcpartpicker.com/builds/",
       "Referrer-Policy": "strict-origin-when-cross-origin",
     },

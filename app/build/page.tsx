@@ -7,6 +7,7 @@ import { useMutation } from "convex/react";
 import React, { FormEvent, useEffect, useState } from "react";
 import { api } from "@/../convex/_generated/api";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 export interface PartProps {
   src?: string;
   model: string;
@@ -20,14 +21,39 @@ export default function Build() {
   const [name, setName] = useState<string>("");
   const router = useRouter();
   const [parts, setParts] = useState<PartProps[]>([]);
+  //const part_descriptions = {
+  //       CPU: cpu_description,
+  //       GPU: gpu_description,
+  //       RAM: ram_description,
+  //       MOBO: mobo_description,
+  //       PSU: psu_description,
+  //       STORAGE: storage_description,
+  //       CASE: case_description,
+  //   }
   useEffect(() => {
+    async function handleDesc(prompt: string, parsed: any) {
+      try {
+        const resp = await axios.post("/api/descriptions", { prompt: prompt, parsed: build.parts });
+        console.log(resp.data);
+        if (resp.data) {
+          setParts((parts: any) => {
+            return parts.map((part: any) => {
+              return { ...part, desc: resp.data[part.type] };
+            });
+          });
+        }
+      } finally {
+      }
+    }
     const build = JSON.parse(localStorage.getItem("build") || "{}");
+
     if (build) {
       const pars: any = [];
       for (const [key, value] of Object.entries(build)) {
         pars.push({ type: key, model: value });
       }
       setParts(pars);
+      handleDesc(localStorage.getItem("prompt")!, build);
     }
   }, []);
   async function save_to_convex(e: FormEvent) {

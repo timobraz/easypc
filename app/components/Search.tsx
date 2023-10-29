@@ -12,9 +12,7 @@ export default function Search({ ph }: { ph: string }) {
     const resp = await axios.post("/api/search", { prompt: prompt });
     console.log(resp.data);
 
-    const resp2 = await insert_build(resp.data, prompt.trim());
-    console.log(resp2);
-    if (resp2) router.push("/build?" + resp2.trim());
+    if (resp.data) router.push("/build?" + resp.data.trim());
   }
   return (
     <form

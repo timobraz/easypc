@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/pc.glb");
   return (
-    <group {...props} dispose={null} rotation={[0, Math.PI / 3, 0]} position={[0, -2, 0]}>
+    <group {...props} dispose={null} rotation={[0, (Math.PI * 4) / 3, 0]} position={[0, -2, 0]}>
       <group position={[0, 2.194, 0]} scale={[2.592, 2.083, 1]}>
         <mesh castShadow receiveShadow geometry={nodes.Cube001_1.geometry} material={materials.Material} />
         <mesh castShadow receiveShadow geometry={nodes.Cube001_2.geometry} material={materials["Material.001"]} />

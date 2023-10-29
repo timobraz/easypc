@@ -1,0 +1,93 @@
+Build Name: Machine Learning 4x GPU 64GB GPU RAM
+Description: Ignore the warning about the case and the motherboard being incompatible. (Well, double check what I'm telling you. But this worked for me.) CEB motherboards use the same standoff points as ATX, they're just a little bit wider. This one fits fine in the case.
+The notes about USB issues are valid. And pay close attention to the connectors. The bottom-most video card overlaps one of the USB connectors and you need to use a 90 degree bend adapter to redirect the pins.
+Price: $3595.11
+Parts List: 
+	CPU: Intel Core i9-7900X 3.3 GHz 10-Core $416.00
+	Motherboard: Asus WS X299 SAGE/10G SSI CEB LGA2066 $599.00
+	Storage: Samsung 980 Pro 2 TB M.2-2280 PCIe 4.0 X4 NVME SSD $135.59
+	Storage: Samsung 980 Pro 2 TB M.2-2280 PCIe 4.0 X4 NVME SSD $135.59
+	Video Card: MSI VENTUS 2X BLACK OC GeForce RTX 4060 Ti 16 GB $429.99
+	Video Card: MSI VENTUS 2X BLACK OC GeForce RTX 4060 Ti 16 GB $429.99
+	Video Card: MSI VENTUS 2X BLACK OC GeForce RTX 4060 Ti 16 GB $429.99
+	Video Card: MSI VENTUS 2X BLACK OC GeForce RTX 4060 Ti 16 GB $429.99
+	Case: Lian Li O11 Dynamic EVO ATX Mid Tower $148.99
+	Power Supply: EVGA SuperNOVA 1600 G+ 1600 W 80+ Gold Certified Fully Modular ATX $219.99
+
+
+Build Name: 2023 Build 7900xt
+Description: white pretty build upgraded from my 5700xt build
+Price: $2314.11
+Parts List: 
+	CPU: AMD Ryzen 7 5800X3D 3.4 GHz 8-Core $321.14
+	Motherboard: MSI MPG X570 GAMING EDGE WIFI ATX AM4 $379.99
+	Memory: Corsair Vengeance RGB Pro 32 GB (2 x 16 GB) DDR4-3200 CL16 $89.99
+	Storage: Samsung 970 Evo 500 GB M.2-2280 PCIe 3.0 X4 NVME SSD $49.99
+	Video Card: XFX Speedster MERC 310 Black Edition Radeon RX 7900 XT 20 GB $799.04
+	Power Supply: SeaSonic FOCUS Gold 550 W 80+ Gold Certified Semi-modular ATX $93.99
+
+
+Build Name: Girlfriend's Build
+Description: Overall a nice build with my girlfriend. Got to teach her how one is put together. I guess I didn't realize that the mobo didn't come with wifi so there is a wifi card on the way. Just running a stock cooler. It's actually the stock cooler for an i9 so maybe will do a bit better than the one the i5 came with. We shall see soon enough plus it has RGB. I would've preferred a higher W PSU especially for future upgrades but we saved some money since I just had this one already. Our friends gave us the GPU as well so we were able to make a pretty strong computer for relatively cheap. I really liked this case. It was very easy to work in although we had a screw snap but should be good once I drill it out. The corsair fans are the fans from an aio liquid cooler from a previous build where I went with different fans for it. Turns out they have some unique rgb connector so they don't have rgb at the moment. I was able to find an adapter but it is coming from China so we won't get that for a few weeks but hopefully that will work. Couldn't add it to my part list the easy way but here is the link https://www.newegg.com/p/1W7-00RP-000N6?Item=9SIAGFHHDG4933. Maybe that will help someone else who is dealing with the same issue or maybe someone knows this won't work and will maybe save me from frying components. We're upgrading her from Ryzen 7 2700 and Radeon RX 580. They were performing relatively fine but the system kept crashing. I think I'd struggle to sell it or the components for it to be worthwhile so I think I'll turn it into a NAS for my parents and put the GPU in the system I made them earlier this year. Overall this build was fun and I think it came together pretty well.
+Price: $882.46
+Parts List: 
+	CPU: Intel Core i5-13500 2.5 GHz 14-Core $247.98
+	Memory: TEAMGROUP T-Force Vulcan 32 GB (2 x 16 GB) DDR5-5200 CL40 $79.98
+	Storage: Samsung 970 Evo Plus 500 GB M.2-2280 PCIe 3.0 X4 NVME SSD $40.99
+	Storage: Seagate Barracuda Compute 2 TB 3.5" 7200 RPM $57.99
+	Video Card: MSI VENTUS XS OC GeForce GTX 1660 SUPER 6 GB $241.09
+	Case: Thermaltake Divider 170 TG Snow ARGB MicroATX Mid Tower $79.98
+	Power Supply: Thermaltake Smart 500 W 80+ Certified ATX $39.93
+
+
+Build Name: Evangelion Heart Transplant
+Description: This is a rendition of many past builds and is yet another build with a 5600X in it. I'm gonna call it first, someone's gonna scream blasphemy for pairing a 5600X with a 3090. Just know that I'm as broke as it comes, but a 5800X3D is in line soon.
+I scored a deal on a beautiful Asus Evangelion Edition 3090. Lots of people don't like the green/purple color scheme but I find myself liking it. As much as I wanted the rest of the Eva parts, I really can't find myself justifying $400 for a case, $400 for an AIO, $400 for a PSU, etc... this 3090 was scooped for $900 off cash used in marketplace. I figure it has some resale value in it.
+My previous power supply and case didn't stand a chance with the 3090, so I had to upgrade those as well. The Lian Li was picked up from my local Micro Center for $103 open box while the CX750M was $75. Great prices and I'm impressed with the Lian Li's ease of use. Looks great too.
+Rebuilding the whole thing wasn't so bad. There was a bit of daisy chaining involved but it wasn't particularly tough. Most of the stuff that was on the motherboard before could stay on the motherboard. Took about 2 hours to move everything over and clean up after.
+Price: $539.69
+Parts List: 
+	CPU: AMD Ryzen 5 5600X 3.7 GHz 6-Core $159.00
+	Memory: Corsair Vengeance RGB Pro 32 GB (2 x 16 GB) DDR4-3600 CL18 $94.99
+	Storage: Silicon Power A60 1 TB M.2-2280 PCIe 3.0 X4 NVME SSD $42.97
+	Case: Lian Li Lancool II Mesh ATX Mid Tower $162.75
+	Power Supply: Corsair CX750M (2021) 750 W 80+ Bronze Certified Semi-modular ATX $79.98
+
+
+Build Name: Computer for AI (Stable Diffusion and LLMs)
+Description: Hello, fellow enthusiasts! I've just wrapped up my latest build and thought I'd share some insights into my component choices.
+1. CPU: AMD 7950X
+Upgradability: AMD has a history of supporting sockets across multiple generations.
+AM5 Platform Advantages: It can run two PCIe 5.0 devices (both GPU and SSD) at full x16 speed simultaneously. Intel, on the other hand, splits the lanes to x8 each.
+Installation Ease: Recent Intel CPUs (Gen 12, 13, and 14) require a contact frame for installation. While this frame is primarily meant for better temperature control, it's not only tricky to install, but a misstep could also damage the motherboard.
+2. Motherboard: Asus ROG Crosshair X670E Hero
+Memory Upgrade Potential: This motherboard has a reputation for seamlessly supporting up to 192GB of memory at 5200MHz. An attractive option for possible future expansions.
+Dual GPU Support: I might delve into demanding AI applications in the future that would benefit from two GPUs.
+3. Memory: Corsair Vengeance DDR5-6000 CL30 (2 x 48 GB)
+Purpose: For AI-centric tasks, both memory capacity and speed are paramount. A setup with 196GB configuration can only attain a maximum frequency of 5200MHz. I selected a 96GB configuration, as this setup permits higher frequencies.
+High-Speed Performance: On the AM5 platform, a dual RAM module setup can achieve max. 6000MHz in 1:1 mode (UCLK:MCLK ratio) without requiring any tweaks. This Corsair kit is currently the kit with the fastest timings "straight-out-of-the-box".
+4. CPU Cooler: Lian Li Galahad II Trinity Performance
+Top-Tier Performance: It's hailed as the best-performing CPU AIO currently available. Although it can get loud at full speed, it offers a notable reduction in noise under "low" fan setting (reduced max. RPM) without compromising much on performance. Even under "low" fan setting, I find the max RPM speed a bit loud, but under normal operation the fan usually doesn't reach its loudest RPM and remains relatively quiet.
+5. SSD: Samsung Pro 990 (4TB)
+Vast Storage and Reliability: Not only does it offer ample space, but it also features the latest firmware, safeguarding against the self-degradation issue.
+6. GPU: Gigabyte AORUS Master RTX 4090
+Noise & Performance: It's among the rare models without coil whine, offering robust cooling and being relatively quite under operation.
+7. Thermal Paste: Arctic MX-6
+Performance & Longevity: While there's a limited number of reviews currently, existing ones rank it amongst top-tier thermal pastes. There is also some experience that it has less "pump-out" effect and doesn't try out so quickly than competitors.
+8. Case: Lian Li LANCOOL III (Non-RGB)
+Airflow & Future Expansion: Opted for non-RGB version whose fans have better airflow. The case ranks highly in benchmarks for performance. However, adding another GPU in the future might necessitate a more spacious case (Fractal Meshify 2XL or Corsair 7000D).
+9. Power Supply: be quiet! Straight Power 12 (1200W)
+Quality & Efficiency: be quiet! is renowned for its build quality. The 1200W PSU also has some headroom to ensure energy efficiency when not maxed out. A secondary GPU might, however, call for an upgrade to 1500W.
+10. Fan: Lian Li Uni Fan P28
+Balance of Noise & Performance: As one of the best-performing 120mm fans, it strikes an excellent balance between noise and airflow.
+Price: $4519.57
+Parts List: 
+	CPU: AMD Ryzen 9 7950X 4.5 GHz 16-Core $536.60
+	Motherboard: Asus ROG CROSSHAIR X670E HERO ATX AM5 $594.41
+	Memory: Corsair Vengeance RGB 96 GB (2 x 48 GB) DDR5-6000 CL30 $364.99
+	Storage: Samsung 990 Pro 4 TB M.2-2280 PCIe 4.0 X4 NVME SSD $282.37
+	Video Card: Gigabyte AORUS MASTER GeForce RTX 4090 24 GB $1874.98
+	Case: Lian Li LANCOOL III ATX Mid Tower $139.90
+	Power Supply: be quiet! Straight Power 12 1200 W 80+ Platinum Certified Fully Modular ATX $239.90
+
+

@@ -6,9 +6,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # new driver
-options = webdriver.ChromeOptions()
-options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36")
-driver = webdriver.Chrome(options=options)
+# options = webdriver.ChromeOptions()
+# options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36")
+# driver = webdriver.Chrome(options=options)
 
 
 # def getBuild(urlInput):
@@ -52,11 +52,24 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException
 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.")
+driver = webdriver.Chrome(options=options)
 
+def create_jsonl_file(price, name, description, cpu, gpu, ram, mobo, psu, storage, case):
+    with open("output.jsonl", "w") as file:
+        data = {
+            "text": f"<s>[INST] <<SYS>>\nYou are an AI focused on generating lists of PC components based on given user requirements. Your task is to provide a list of recommended parts in a specific order followed by explanations for each choice. Your responses should be clear, concise, and informative. Do not engage in regular conversation with the user. Always ensure that your recommendations are based on the information provided and are well-reasoned.\n<</SYS>>\n\n {price} Build: {name}, {description} [/INST] [<{cpu}> CPU; <{gpu}> GPU; <{ram}> RAM; <{mobo}> MOBO; <{psu}> PSU; <{storage}> STORAGE; <{case}> CASE]"
+        }
+        file.write(json.dumps(data) + "\n")
+        
 def getBuild(urlInput):
-    options = webdriver.ChromeOptions()
-    options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36")
-    driver = webdriver.Chrome(options=options)
+    
+    # go to google.com
+    # driver.get("https://www.google.com")
     ## wait 2 seconds
     time.sleep(2)
     print("getBuild")
@@ -64,7 +77,12 @@ def getBuild(urlInput):
 
     # Navigate to the page
     driver.get(urlInput)
-
+    
+    driver.add_cookie({"name": "xcsrftoken", "value": "4QtJn4lfmjYdGgtEP9bsyEUsazTcEpMjYZRn8TjrLtpJvosG0kXj1b7YQN1iX7PO"})
+    # __cf_bm=POuRd8BShc4HyK2HATP4JDu2nexzCVa5NeuyIVGzyTs-1698561406-0-AQnTKRuiZkG4OgaXJ7Wbt1RbuBsGWzRx3sneFLfGhyFlBqCIv8nVua3hGCu3ll8NbivGB6cYU9L/vVhVrggSe94=; cf_clearance=4E5S6P6_Ei7TRTdwQHg0wYzJMnHlO8VvSXAjxayUgbY-1698561407-0-1-217ba70.4b09a98d.912d3306-0.2.1698561407; xsessionid=6mcd0kzue994cdoygqbvwal2rrvngx53; xcsrftoken=4QtJn4lfmjYdGgtEP9bsyEUsazTcEpMjYZRn8TjrLtpJvosG0kXj1b7YQN1iX7PO
+    driver.add_cookie({"name": "__cf_bm", "value": "POuRd8BShc4HyK2HATP4JDu2nexzCVa5NeuyIVGzyTs-1698561406-0-AQnTKRuiZkG4OgaXJ7Wbt1RbuBsGWzRx3sneFLfGhyFlBqCIv8nVua3hGCu3ll8NbivGB6cYU9L/vVhVrggSe94="})
+    driver.add_cookie({"name": "cf_clearance", "value": "4E5S6P6_Ei7TRTdwQHg0wYzJMnHlO8VvSXAjxayUgbY-1698561407-0-1-217ba70.4b09a98d.912d3306-0.2.1698561407"})
+    driver.add_cookie({"name": "xsessionid", "value": "6mcd0kzue994cdoygqbvwal2rrvngx53"})
     time.sleep(2)
 
     wait = WebDriverWait(driver, 30)  # wait for up to 20 seconds
@@ -102,14 +120,7 @@ def getBuild(urlInput):
             print("\t", part[0] + ": ", part[1], part[2])
 
         ## add to file
-        f = open("old/builds2.txt", "a")
-        f.write("Build Name: " + build_name + "\n")
-        f.write("Description: " + description + "\n")
-        f.write("Price: " + total_price + "\n")
-        f.write("Parts List: \n")
-        for part in parts_list:
-            f.write("\t" + part[0] + ": " + part[1] + " " + part[2] + "\n")
-        f.write("\n\n")
+        create_jsonl_file("High-end", "Gaming Beast", "Built for intensive gaming sessions", "Intel i9", "Nvidia RTX 3090", "32GB DDR4", "ASUS ROG", "750W", "1TB SSD + 2TB HDD", "Cooler Master H500P")
         f.close()
     except TimeoutException:
         print(f"Timed out waiting for elements to appear on {urlInput}!")
@@ -148,7 +159,7 @@ def getAllBuilds():
 
 # getAllBuilds()
 
-## read in urls from file
+# read in urls from file
 urls = []
 with open("urls.txt", "r") as f:
     urls = f.readlines()
@@ -157,13 +168,11 @@ with open("urls.txt", "r") as f:
 #     close
 f.close()
 
-
 # Iterate through each URL and scrape data
 for url in urls:
     # Start a new browser session
     driver = webdriver.Chrome()
-    driver.get(url)
     getBuild(url)  # This is your scraping function
     driver.quit()  # Close the browser session
 
-getBuild("https://pcpartpicker.com/b/9MK323")
+# getBuild("https://pcpartpicker.com/b/9MK323")

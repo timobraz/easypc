@@ -3,6 +3,9 @@ import { useQuery } from "convex/react";
 import React, { useState } from "react";
 import { api } from "@/../convex/_generated/api";
 import Card from "@/components/Card";
+import { motion } from "framer-motion";
+import { materialOpacity } from "three/examples/jsm/nodes/Nodes.js";
+
 interface PartProps {
   src: string;
   model: string;

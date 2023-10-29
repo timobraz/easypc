@@ -13,8 +13,8 @@ export default function Navbar() {
         <Link href="/" className="hover:text-accent  transition-all  duration-300 ease-in-out">
           Home
         </Link>
-        <Link href="/guides" className="hover:text-accent transition-all  duration-300 ease-in-out">
-          Build Guides
+        <Link href="/faq" className="hover:text-accent transition-all  duration-300 ease-in-out">
+          FAQ
         </Link>
         <Link href="/dashboard" className="hover:text-accent transition-all  duration-300 ease-in-out">
           Dashboard

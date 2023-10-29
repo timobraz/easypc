@@ -15,9 +15,9 @@ export default function Build() {
   const listBuilds = useQuery(api.myFunctions.listBuilds);
 
   return (
-    <main className="flex min-h-screen h-full  p-24 py-40 bg-primary w-full flex-col relative">
-      <h1 className="text-2xl">Saved Builds</h1>
-      <div className="flex flex-row flex-wrap gap-10">
+    <main className="flex min-h-screen h-full  p-24 py-40 bg-primary w-full flex-col relative gap-4 items-center">
+      <h1 className="text-3xl font-bold w-auto self-start">Saved Builds</h1>
+      <div className="flex flex-row  flex-wrap gap- w-full justify-between">
         {listBuilds?.map((build) => (
           <Card key={build._id} build={build}></Card>
         ))}

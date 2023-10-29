@@ -17,6 +17,15 @@ export const listBuilds = query({
   },
 });
 
+// export const getSingle = query({
+//   // Validators for arguments.
+//   args: { _id: v.id("builds") },
+
+//   // Query function implementation.
+//   handler: async (ctx, arg) => {
+//     return await ctx.db.get(arg._id);
+//   },
+// });
 // You can write data to the database via a mutation function:
 export const saveBuild = mutation({
   // Validators for arguments.
@@ -42,24 +51,15 @@ export const saveBuild = mutation({
 });
 
 // // You can fetch data from and send data to third-party APIs via an action:
-// export const fetchRandomIdea = action({
-//   // Validators for arguments.
-//   args: {},
+export const getSingle = query({
+  // Validators for arguments.
+  args: { _id: v.id("builds") },
 
-//   // Action implementation.
-//   handler: async (ctx) => {
-//     // Use the browser-like `fetch` API to send HTTP requests.
-//     // See https://docs.convex.dev/functions/actions#calling-third-party-apis-and-using-npm-packages.
-//     const response = await fetch("https://appideagenerator.com/call.php");
-//     const idea = await response.text();
+  // Action implementation.
+  handler: async (ctx, args) => {
+    // Use the browser-like `fetch` API to send HTTP requests.
+    // See https://docs.convex.dev/functions/actions#calling-third-party-apis-and-using-npm-packages.
 
-//     // Write or query data by running Convex mutations/queries from within an action
-//     await ctx.runMutation(api.myFunctions.saveIdea, {
-//       idea: idea.trim(),
-//       random: true,
-//     });
-
-//     // Optionally, return a value from your action
-//     return idea;
-//   },
-// });
+    return await ctx.db.get(args._id);
+  },
+});

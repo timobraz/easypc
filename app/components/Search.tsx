@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
+import axios from "axios";
 
 export default function Search({ ph }: { ph: string }) {
   const router = useRouter();
@@ -8,7 +9,12 @@ export default function Search({ ph }: { ph: string }) {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     e.stopPropagation();
-    prompt.trim().length > 3 && router.push("/build?" + prompt.trim());
+    const resp = await axios.post("/api/search", { prompt: prompt });
+    console.log(resp.data);
+
+    const resp2 = await insert_build(resp.data, prompt.trim());
+    console.log(resp2);
+    if (resp2) router.push("/build?" + resp2.trim());
   }
   return (
     <form

@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 // require("@tensorflow/tfjs");
 dotenv.config();
 // import "@tensorflow/tfjs";
-import model from "@tensorflow-models/universal-sentence-encoder";
+
 // const model = require("@tensorflow-models/universal-sentence-encoder").model;
 console.log(process.env.PINECONE_API_KEY);
 const pinecone = new Pinecone({
@@ -44,34 +44,34 @@ const upsert = async (data: any) => {
   }
 };
 
-(async () => {
-  const parts = dataset.parts!;
-  for (let i = 0; i < parts.length; i++) {
-    model.load().then(async (loaded) => {
-      const embedding = await loaded.embed(JSON.stringify(parts[i]));
-      await upsert({
-        ...parts[i],
-        embedding,
-      });
-    });
+// (async () => {
+//   const parts = dataset.parts!;
+//   for (let i = 0; i < parts.length; i++) {
+//     model.load().then(async (loaded) => {
+//       const embedding = await loaded.embed(JSON.stringify(parts[i]));
+//       await upsert({
+//         ...parts[i],
+//         embedding,
+//       });
+//     });
 
-    // const embedding = await openAiHelper.createEmbedding(chunkedArticles[i].content);
-    // await upsert({
-    //   content: chunkedArticles[i].content,
-    //   content_tokens: chunkedArticles[i].content_tokens,
-    //   embedding,
-    // });
+//     // const embedding = await openAiHelper.createEmbedding(chunkedArticles[i].content);
+//     // await upsert({
+//     //   content: chunkedArticles[i].content,
+//     //   content_tokens: chunkedArticles[i].content_tokens,
+//     //   embedding,
+//     // });
 
-    //temporary disabling supabase from prev trial
+//     //temporary disabling supabase from prev trial
 
-    // const { data,error } = await supabaseHelper
-    //     .from('semantic_search_poc')
-    //     .insert({
-    //         content: chunkedArticles[i].content,
-    //         content_tokens: chunkedArticles[i].content_tokens,
-    //         embedding
-    // })
+//     // const { data,error } = await supabaseHelper
+//     //     .from('semantic_search_poc')
+//     //     .insert({
+//     //         content: chunkedArticles[i].content,
+//     //         content_tokens: chunkedArticles[i].content_tokens,
+//     //         embedding
+//     // })
 
-    setTimeout(() => {}, 500);
-  }
-})();
+//     setTimeout(() => {}, 500);
+//   }
+// })();

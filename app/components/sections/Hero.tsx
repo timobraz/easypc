@@ -1,5 +1,4 @@
 "use client";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Model from "../models/pc";
 import { Canvas } from "@react-three/fiber";
 import { Bounds, Float, OrbitControls } from "@react-three/drei";

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     },
     {
       headers: {
-        Authorization: "Bearer 2d03281983b9a1e6704e17dd97fb77420fa3ce56bce2de2f089845639e27c96f",
+        Authorization: "Bearer 92b7bcf155afe48b6e50e0b162e2b8ffdf6287847b82d505704876945dd38b8d",
       },
     }
   );
@@ -38,10 +38,30 @@ export async function POST(req: NextRequest) {
     const out2 =
       "12900KF; <GPU> 4090; <RAM> 32GB; <MOBO> Z690 GAMING MAG; <PSU> Corsair RM850x (2020); <STORAGE> 2x 1TB M.2-2280 PCIE 4.0 X4 NVME SSD; <CASE> Corsair 4000D Airflow";
     const parsed = parser("<CPU> " + option);
-    console.log(parsed);
-    return NextResponse.json(parsed);
+
     const resp2 = await insert_build(parsed, data.prompt.trim());
-    const parts = await get_part_descriptions(resp2);
-    return;
+    console.log(resp2);
+    const parts: any = await get_part_descriptions(resp2);
+    console.log(parts);
+
+    const cpu_description = parts.data.find((x: any) => x[1] == "cpu")[4];
+    const gpu_description = parts.data.find((x: any) => x[1] == "gpu")[4];
+    const ram_description = parts.data.find((x: any) => x[1] == "ram")[4];
+    const mobo_description = parts.data.find((x: any) => x[1] == "mobo")[4];
+    const psu_description = parts.data.find((x: any) => x[1] == "psu")[4];
+    const storage_description = parts.data.find((x: any) => x[1] == "storage")[4];
+    const case_description = parts.data.find((x: any) => x[1] == "case")[4];
+
+    const part_descriptions = {
+      CPU: { name: parts.CPU, description: cpu_description },
+      GPU: { name: parts.GPU, description: gpu_description },
+      RAM: { name: parts.RAM, description: ram_description },
+      MOBO: { name: parts.MOBO, description: mobo_description },
+      PSU: { name: parts.PSU, description: psu_description },
+      STORAGE: { name: parts.STORAGE, description: storage_description },
+      CASE: { name: parts.CASE, description: case_description },
+    }
+
+    return NextResponse.json(part_descriptions);
   }
 }

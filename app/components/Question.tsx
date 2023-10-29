@@ -1,16 +1,24 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { useMotionValueEvent, motion, useScroll, useTransform } from "framer-motion";
 
-export default function Card(props: any) {
+
+
+
+
+
+
+export default function Question(props: any) {
   return (
-    <motion.div className="flex flex-col w-72 rounded-lg aspect-square bg-white ring-2 cursor-pointer "
+    
+    <motion.div className="flex flex-col w-full rounded-lg h-32 bg-white cursor-pointer shadow-lg shadow-gray-[350] ring-2"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: -1,}}
-      transition={{ duration: 0.7 }}
+      transition={{ duration: 1 }}
       whileHover={{scale: 1.05}}
       whileTap={{scale: 0.9}}
+      
       >
-      <img src={"./image.png"} className="rounded-lg" alt="" />
+      <img src={"mag.png"} className="rounded-lg" alt="" />
       <div className="flex flex-col p-4"
       
       >

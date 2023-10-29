@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     },
     {
       headers: {
-        Authorization: "Bearer 92b7bcf155afe48b6e50e0b162e2b8ffdf6287847b82d505704876945dd38b8d",
+        Authorization: "Bearer 2d03281983b9a1e6704e17dd97fb77420fa3ce56bce2de2f089845639e27c96f",
       },
     }
   );
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
       PSU: { name: parts.PSU, description: psu_description },
       STORAGE: { name: parts.STORAGE, description: storage_description },
       CASE: { name: parts.CASE, description: case_description },
-    }
+    };
 
     return NextResponse.json(part_descriptions);
   }

@@ -39,9 +39,9 @@ export async function POST(req: NextRequest) {
       "12900KF; <GPU> 4090; <RAM> 32GB; <MOBO> Z690 GAMING MAG; <PSU> Corsair RM850x (2020); <STORAGE> 2x 1TB M.2-2280 PCIE 4.0 X4 NVME SSD; <CASE> Corsair 4000D Airflow";
     const parsed = parser("<CPU> " + option);
     console.log(parsed);
+    return NextResponse.json(parsed);
     const resp2 = await insert_build(parsed, data.prompt.trim());
     const parts = await get_part_descriptions(resp2);
-    console.log(parts);
-    return NextResponse.json(resp2);
+    return;
   }
 }

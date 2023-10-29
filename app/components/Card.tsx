@@ -17,7 +17,7 @@ export default function Card(props: any) {
       <img src={"./image.png"} className="rounded-lg" alt="" />
       <div className="flex flex-col p-4">
         <h4 className="text-xl">{props.build.title || "NameName"}</h4>
-        <h4 className="text-lg font-semibold">{props.build.totalPrice || "$$$$"}</h4>
+        <h4 className="text-lg font-semibold">{props.build.totalPrice || props.build.description}</h4>
       </div>
     </motion.div>
   );

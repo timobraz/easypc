@@ -4,9 +4,10 @@ import { Canvas } from "@react-three/fiber";
 import { Bounds, Float, OrbitControls } from "@react-three/drei";
 import { motion, useScroll } from "framer-motion";
 import Search from "../Search";
+import { useState } from "react";
 export default function Hero() {
   const { scrollYProgress } = useScroll();
-
+  const [loading, setLoading] = useState<boolean>(false);
   return (
     <main className="flex  min-h-screen h-screen flex-col items-center justify-center p-24 bg-primary relative w-full">
       <div className="z-10  flex-1   h-full max-w-5xl w-full items-center justify-center text-sm flex flex-col gap-6 ">
@@ -31,8 +32,16 @@ export default function Hero() {
         </div>
 
         <div className="flex-1 flex-shrink-0 flex flex-col items-center  w-3/4 gap-4 h-full">
-          <Search ph="What's this PC for?"></Search>
+          <Search ph="What's this PC for?" setLoading={setLoading}></Search>
           <h3 className="text-gray-500 text-2xl  ">Build your dream PC, and have it make sense.</h3>
+          {loading && (
+            <div className="lds-ellipsis absolute">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          )}
         </div>
       </div>
     </main>

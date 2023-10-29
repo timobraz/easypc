@@ -4,14 +4,14 @@ import Model from "@/components/models/pc";
 import { Bounds, CameraControls, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMutation } from "convex/react";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { api } from "@/../convex/_generated/api";
 import { useRouter } from "next/navigation";
 export interface PartProps {
-  src: string;
+  src?: string;
   model: string;
   type: string;
-  price: number;
+  price?: number;
   desc?: string;
 }
 
@@ -19,16 +19,17 @@ export default function Build() {
   const saveToConvex = useMutation(api.myFunctions.saveBuild);
   const [name, setName] = useState<string>("");
   const router = useRouter();
-  const [parts, setParts] = useState<PartProps[]>([
-    { src: "https://m.media-amazon.com/images/I/71TaSwsWCxL._AC_UF894,1000_QL80_.jpg", model: "X79", type: "Motherboard", price: 115.49 },
-    {
-      src: "https://www.digitaltrends.com/wp-content/uploads/2022/01/nvidia-rtx-3050-review-2.jpg?fit=720%2C480&p=1",
-      model: "RX 580",
-      type: "GPU",
-      price: 96.27,
-    },
-  ]);
-
+  const [parts, setParts] = useState<PartProps[]>([]);
+  useEffect(() => {
+    const build = JSON.parse(localStorage.getItem("build") || "{}");
+    if (build) {
+      const pars: any = [];
+      for (const [key, value] of Object.entries(build)) {
+        pars.push({ type: key, model: value });
+      }
+      setParts(pars);
+    }
+  }, []);
   async function save_to_convex(e: FormEvent) {
     e.preventDefault();
     e.stopPropagation();
@@ -36,9 +37,9 @@ export default function Build() {
       parts: parts.map((part) => {
         return { preview: part.src, title: part.model, type: part.type, price: part.price, description: "test" };
       }),
-      description: "adawdawd",
+      description: localStorage.getItem("prompt")!,
       title: name || "My build",
-      totalPrice: parts.reduce((a, b) => a + b.price, 0),
+      // totalPrice: parts.reduce((a, b) => a + b.price, 0),
     });
     name.trim().length > 1 && router.push("/dashboard");
   }

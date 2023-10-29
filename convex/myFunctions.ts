@@ -30,9 +30,17 @@ export const listBuilds = query({
 export const saveBuild = mutation({
   // Validators for arguments.
   args: {
-    parts: v.array(v.object({ title: v.string(), price: v.number(), type: v.string(), preview: v.string(), description: v.string() })),
     description: v.string(),
-    totalPrice: v.number(),
+    parts: v.array(
+      v.object({
+        title: v.string(),
+        price: v.optional(v.number()),
+        type: v.string(),
+        preview: v.optional(v.string()),
+        description: v.optional(v.string()),
+      })
+    ),
+    totalPrice: v.optional(v.number()),
     title: v.string(),
   },
 

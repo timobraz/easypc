@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
 const poppins = Poppins({ weight: ["400", "500", "600", "700", "800", "900"], subsets: ["latin"] });

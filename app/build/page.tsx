@@ -33,7 +33,7 @@ export default function Build() {
   useEffect(() => {
     async function handleDesc(prompt: string, parsed: any) {
       try {
-        const resp = await axios.post("/api/descriptions", { prompt: prompt, parsed: build.parts });
+        const resp = await axios.post("/api/descriptions", { prompt: prompt, build });
         console.log(resp.data);
         if (resp.data) {
           setParts((parts: any) => {

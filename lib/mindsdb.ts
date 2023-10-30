@@ -55,9 +55,9 @@ export default async function get_part_descriptions(build_id: string): Promise<P
     }),
 });
 
-  let body = await res.text();
+  // let body = await res.text();
 
-  console.log(body);
+  // console.log(body);
 
   return await res.json();
 }

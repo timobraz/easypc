@@ -64,13 +64,14 @@ export async function PUT(req: NextRequest) {
   const parsedjson = JSON.parse(pyth.data);
   // parsedjson.pic = pics;
   return NextResponse.json(parsedjson);
-  const zillowfind = await axios.get("https://www.zillow.com/homes/" + parsedjson.output.address.replaceAll(" ", "-"), {
-    headers: {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
-      accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-      "accept-encoding": "gzip, deflate, br",
-      "accept-language": "en-US,en;q=0.9",
-    },
-  });
-  console.log(zillowfind.data);
+
+  // const zillowfind = await axios.get("https://www.zillow.com/homes/" + parsedjson.output.address.replaceAll(" ", "-"), {
+  //   headers: {
+  //     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
+  //     accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+  //     "accept-encoding": "gzip, deflate, br",
+  //     "accept-language": "en-US,en;q=0.9",
+  //   },
+  // });
+  // console.log(zillowfind.data);
 }

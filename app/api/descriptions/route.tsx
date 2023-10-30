@@ -4,7 +4,8 @@ import get_part_descriptions from "../../../lib/mindsdb";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const resp2 = await insert_build(body.parsed, body.prompt.trim());
+  console.log(body)
+  const resp2 = await insert_build(body.build, body.prompt.trim());
   console.log(resp2);
   const parts: any = await get_part_descriptions(resp2);
   console.log(parts);

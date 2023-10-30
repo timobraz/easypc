@@ -7,6 +7,16 @@ console.log(process.env.DATABASE_URL);
 export default async function insert_build(build: any, use_case: string) {
   const uuid = v4();
 
+
+
+  // const cpu_description = parts.data.find((x: any) => x[1] == "cpu")[4];
+  // const gpu_description = parts.data.find((x: any) => x[1] == "gpu")[4];
+  // const ram_description = parts.data.find((x: any) => x[1] == "ram")[4];
+  // const mobo_description = parts.data.find((x: any) => x[1] == "mobo")[4];
+  // const psu_description = parts.data.find((x: any) => x[1] == "psu")[4];
+  // const storage_description = parts.data.find((x: any) => x[1] == "storage")[4];
+  // const case_description = parts.data.find((x: any) => x[1] == "case")[4];
+
   const xs = await sql`
     INSERT INTO public.parts (build_id, type, part, use_case)
     VALUES

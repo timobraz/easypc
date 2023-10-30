@@ -16,9 +16,9 @@ export default function Build({
     _id: string;
   };
 }) {
-  console.log(params._id);
-  const build = useQuery(api.myFunctions.getSingle, { _id: params._id as Id<"builds"> });
-  console.log(build);
+  console.log("idd",params._id);
+  const build =  useQuery(api.myFunctions.getSingle, { _id: params._id as Id<"builds"> });
+  console.log("build",build);
   return (
     <main className="flex min-h-screen h-full justify-center p-24 bg-primary w-full  relative">
       <div className="flex-1 flex-col flex relative w-[40rem] h-[40rem] items-center justify-center">
@@ -51,7 +51,7 @@ export default function Build({
       </div>
 
       <div className="w-full flex flex-1 flex-col items-center justify-between gap-4 h-full  p-4">
-        {build?.parts.map((part: any) => {
+        {build&& build.parts.map((part: any) => {
           return <Part key={part.src} src={part.preview} model={part.title} type={part.type} price={part.price}></Part>;
         })}
       </div>
